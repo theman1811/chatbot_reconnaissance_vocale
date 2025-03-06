@@ -19,6 +19,14 @@ if os.environ.get("STREAMLIT_CLOUD"):
 else:
     import pyaudio
 
+
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
+    nltk.download('stopwords')
+    nltk.download('wordnet')
+
 # Charger le modèle français de spaCy
 nlp = spacy.load("fr_core_news_sm")
 
