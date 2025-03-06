@@ -20,12 +20,22 @@ else:
     import pyaudio
 
 
-try:
+# Chemin personnalisé pour les données NLTK (optionnel)
+nltk_data_path = os.path.join(os.getcwd(), 'nltk_data')
+os.makedirs(nltk_data_path, exist_ok=True)
+nltk.data.path.append(nltk_data_path)
+
+# Téléchargements garantis
+nltk.download('punkt', download_dir=nltk_data_path, quiet=True)
+nltk.download('stopwords', download_dir=nltk_data_path, quiet=True)
+nltk.download('wordnet', download_dir=nltk_data_path, quiet=True)
+
+"""try:
     nltk.data.find('tokenizers/punkt')
 except LookupError:
     nltk.download('punkt')
     nltk.download('stopwords')
-    nltk.download('wordnet')
+    nltk.download('wordnet')"""
 
 # Charger le modèle français de spaCy
 nlp = spacy.load("fr_core_news_sm")
