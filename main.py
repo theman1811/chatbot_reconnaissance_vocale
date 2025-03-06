@@ -20,6 +20,15 @@ else:
     import pyaudio
 
 
+
+
+
+
+
+
+
+
+
 # Chemin personnalisé pour les données NLTK (optionnel)
 nltk_data_path = os.path.join(os.getcwd(), 'nltk_data')
 os.makedirs(nltk_data_path, exist_ok=True)
@@ -38,6 +47,7 @@ except LookupError:
     nltk.download('wordnet')"""
 
 nltk.data.path.append('/home/adminuser/nltk_data')
+
 
 # Charger le modèle français de spaCy
 nlp = spacy.load("fr_core_news_sm")
