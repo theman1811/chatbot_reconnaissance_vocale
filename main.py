@@ -11,11 +11,13 @@ import streamlit as st
 import speech_recognition as sr
 from gtts import gTTS
 import io
-try:
-    import pyaudio
-except ImportError:
-    st.warning("La reconnaissance vocale est désactivée en mode cloud")
+import os
+
+if os.environ.get("STREAMLIT_CLOUD"):
+    st.warning("Le microphone est désactivé en mode cloud")
     pyaudio = None
+else:
+    import pyaudio
 
 # Charger le modèle français de spaCy
 nlp = spacy.load("fr_core_news_sm")
