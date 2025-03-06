@@ -36,7 +36,7 @@ pillow==11.1.0
 preshed==3.0.9
 protobuf==5.29.3
 pyarrow==19.0.1
-PyAudio==0.2.14
+#PyAudio==0.2.14
 pyaudio-binary==0.2.14  # Version pré-compilée
 pydantic==2.10.6
 pydantic_core==2.27.2
